@@ -43,7 +43,7 @@ Projeyi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyin
 Bash
 
 ```
-pip install -r requirements.txt
+!pip install -r requirements.txt
 
 ```
 
@@ -54,7 +54,7 @@ Modeli sıfırdan eğitmek ve başarı grafiklerini üretmek için:
 Bash
 
 ```
-python train.py
+!python train.py
 
 ```
 
@@ -67,7 +67,7 @@ Mikrofon ile canlı test yapmak için arayüzü başlatın:
 Bash
 
 ```
-python serve.py
+!python serve.py
 
 ```
 
