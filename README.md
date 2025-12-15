@@ -1,97 +1,203 @@
-DeepTone: Derin Öğrenme ile Ses Duygu Analizi 🎙️
-=================================================
+🧠 DeepTone: Evrişimli Sinir Ağları (CNN) ile Akustik Duygu Tanıma Sistemi
+==========================================================================
 
-**DeepTone**, ses frekanslarının derinliklerine inerek konuşmacının duygu durumunu (Mutlu, Üzgün, Kızgın, Nötr vb.) analiz eden gelişmiş bir Yapay Zeka projesidir.
-
-> *"Sesin tonundaki gizli duyguyu yapay zeka ile açığa çıkarın."*
+**DeepTone**, insan sesi sinyallerindeki (audio signals) gizli öznitelikleri analiz ederek, konuşmacının **duygusal durumunu (Affective State)** sınıflandıran, uçtan uca (end-to-end) bir Derin Öğrenme projesidir. Proje, özellikle **İnsan-Bilgisayar Etkileşimi (HCI)** ve **Duygusal Bilişim (Affective Computing)** alanlarında kullanılmak üzere tasarlanmıştır.
 
 * * * * *
 
-📂 Proje Mimarisi
------------------
+📑 İçindekiler
+--------------
 
-Bu proje, **modüler tasarım prensiplerine** uygun olarak üç ana bileşene ayrılmıştır:
+1.  [Proje Özeti ve Literatür](https://www.google.com/search?q=%23-proje-%C3%B6zeti-ve-literat%C3%BCr)
 
--   **`model.py`**: Derin Öğrenme (CNN - Convolutional Neural Network) mimarisinin tasarlandığı çekirdek dosya.
+2.  [Veri Seti Özellikleri](https://www.google.com/search?q=%23-veri-seti-%C3%B6zellikleri)
 
--   **`train.py`**: Veri setinin işlendiği (MFCC öznitelik çıkarımı), modelin eğitildiği ve performansın test edildiği eğitim dosyası.
+3.  [Metodoloji ve Teknik Mimari](https://www.google.com/search?q=%23-metodoloji-ve-teknik-mimari)
 
--   **`serve.py`**: Eğitilen modelin son kullanıcıya sunulması için **Gradio** ile hazırlanmış interaktif web arayüzü dosyası.
+    -   [Sinyal İşleme ve MFCC](https://www.google.com/search?q=%231-sinyal-i%C5%9Fleme-ve-mfcc-mel-frequency-cepstral-coefficients)
 
--   **`requirements.txt`**: Projenin bağımlılıklarını içeren kütüphane listesi.
+    -   [Model Topolojisi (1D-CNN)](https://www.google.com/search?q=%232-model-topolojisi-1d-cnn)
+
+4.  [Deneysel Kurulum (Experimental Setup)](https://www.google.com/search?q=%23-deneysel-kurulum)
+
+5.  [Performans Analizi ve Sonuçlar](https://www.google.com/search?q=%23-performans-analizi-ve-sonu%C3%A7lar)
+
+6.  [Kurulum ve Kullanım](https://www.google.com/search?q=%23-kurulum-ve-kullan%C4%B1m)
+
+7.  [Gelecek Çalışmalar](https://www.google.com/search?q=%23-gelecek-%C3%A7al%C4%B1%C5%9Fmalar)
+
+8.  [Hazırlayan](https://www.google.com/search?q=%23-haz%C4%B1rlayan)
 
 * * * * *
 
-📊 Veri Seti ve Metodoloji
---------------------------
+🎯 Proje Özeti ve Literatür
+---------------------------
 
--   **Veri Seti:** Projede **TESS (Toronto Emotional Speech Set)** kullanılmıştır. 2800 adet yüksek kaliteli ses dosyasından oluşur.
+Duygu analizi genellikle metin tabanlı (NLP) yapılsa da, ses tonu, vurgu ve frekans değişimleri (prosodi) metnin içeremediği hayati sinyaller taşır. Bu çalışmada, ham ses verilerinden **spektral özniteliklerin** çıkarılması ve bu özniteliklerin **Evrişimli Sinir Ağları (CNN)** ile işlenmesi hedeflenmiştir.
 
--   **Yöntem:** Ses dosyalarından **MFCC (Mel-Frequency Cepstral Coefficients)** özellikleri çıkarılmış ve bu özellikler **Conv1D** katmanlarına sahip bir CNN modeline beslenmiştir.
-
--   **Karşılaştırmalı Analiz:** Proje kapsamında Geleneksel Yöntem (Random Forest) ile Modern Yöntem (CNN) kıyaslanmış ve CNN'in üstün başarısı kanıtlanmıştır.
+Proje, geleneksel makine öğrenmesi yöntemlerinin (SVM, Random Forest) aksine, öznitelik mühendisliğini (feature engineering) minimize ederek, sesin yerel ve zamansal özelliklerini otomatik öğrenen bir mimari sunar.
 
 * * * * *
 
-🚀 Kurulum ve Çalıştırma
+💾 Veri Seti Özellikleri
 ------------------------
 
-Projeyi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyin:
+Çalışmada **Toronto Emotional Speech Set (TESS)** kullanılmıştır.
 
-### 1\. Kütüphaneleri Yükleyin
+-   **Kaynak:** Northwestern University
 
-Bash
+-   **Örneklem Sayısı:** 2800 Adet `.wav` dosyası
 
-```
-!pip install -r requirements.txt
+-   **Katılımcılar:** 26 ve 64 yaşlarında iki kadın konuşmacı.
 
-```
+-   **Sınıf Dağılımı:** Veri seti, sınıf dengesizliği (imbalance) içermemektedir. Her duygu sınıfı için eşit sayıda (400 adet) veri bulunur.
 
-### 2\. Modeli Eğitin
-
-Modeli sıfırdan eğitmek ve başarı grafiklerini üretmek için:
-
-Bash
-
-```
-!python train.py
-
-```
-
-*Bu işlem sonucunda `duygu_modeli.h5` dosyası oluşturulacaktır.*
-
-### 3\. Arayüzü Başlatın (Test)
-
-Mikrofon ile canlı test yapmak için arayüzü başlatın:
-
-Bash
-
-```
-!python serve.py
-
-```
-
-*Size verilen yerel linke (örn: https://www.google.com/search?q=http://127.0.0.1:7860) tıklayarak sistemi kullanabilirsiniz.*
+-   **Sınıflar:** *Anger (Kızgın), Disgust (İğrenme), Fear (Korku), Happiness (Mutlu), Pleasant Surprise (Şaşkın), Sadness (Üzgün), Neutral (Nötr).*
 
 * * * * *
 
-📈 Sonuçlar ve Performans
--------------------------
+🛠 Metodoloji ve Teknik Mimari
+------------------------------
 
-Modelimiz, test verisi üzerinde **%99.82** gibi literatürdeki en yüksek doğruluk oranlarından birine ulaşmıştır.
+Proje akışı üç ana fazdan oluşur: **Ön İşleme (Preprocessing)**, **Öznitelik Çıkarımı (Feature Extraction)** ve **Sınıflandırma (Classification)**.
 
-| **Model** | **Doğruluk Oranı (Accuracy)** |
-| --- | --- |
-| Random Forest (Referans Model) | %98.93 |
-| **DeepTone CNN (Final Model)** | **%99.82** 🏆 |
+### 1\. Sinyal İşleme ve MFCC (Mel-Frequency Cepstral Coefficients)
 
-### Eğitim Başarı Grafiği
+Ham ses sinyali (Amplitude vs Time), makine öğrenmesi modelleri için doğrudan anlamlı değildir. Bu nedenle sinyaller, insan kulağının işitme algısını modelleyen **Mel Skalasına** dönüştürülmüştür.
 
-Modelin öğrenme sürecindeki kararlılığını gösteren grafik:
+-   **Örnekleme Hızı (Sample Rate):** 22.050 Hz
 
-### Karmaşıklık Matrisi (Confusion Matrix)
+-   **Öznitelik Sayısı:** Her ses karesi için **40 MFCC katsayısı** çıkarılmıştır.
 
-Modelin hangi duyguları ne kadar doğru sınıflandırdığının analizi:
+-   **Matematiksel Süreç:**
+
+    1.  **Pre-emphasis:** Yüksek frekansların enerjisini artırma.
+
+    2.  **Framing & Windowing:** Sinyali kısa süreli çerçevelere bölme (Hamming Window).
+
+    3.  **FFT (Fast Fourier Transform):** Zaman alanından frekans alanına geçiş.
+
+    4.  **Mel Filterbank:** İnsan algısına uygun logaritmik frekans ölçekleme.
+
+    5.  **DCT (Discrete Cosine Transform):** Korelasyonu azaltarak MFCC katsayılarını elde etme.
+
+### 2\. Model Topolojisi (1D-CNN)
+
+Ses verisi, görüntüden farklı olarak tek boyutlu (zaman eksenli) bir yapıdadır. Bu nedenle **1D Convolutional Neural Network** mimarisi tercih edilmiştir.
+
+| **Katman (Layer)** | **Yapılandırma** | **Açıklama** |
+| --- | --- | --- |
+| **Input Layer** | (40, 1) | 40 boyutlu MFCC vektör girişi. |
+| **Conv1D** | 64 Filters, Kernel=5, Stride=1 | Yerel frekans desenlerini yakalar. Aktivasyon: `ReLU`. |
+| **MaxPooling1D** | Pool Size=2 | Boyut azaltma yaparak işlem yükünü düşürür ve overfitting'i önler. |
+| **Flatten** | - | Konvolüsyon haritasını (feature map) tek boyutlu vektöre çevirir. |
+| **Dense (FC)** | 128 Neurons | Tam bağlantılı katman. Yüksek seviyeli karar verme birimi. |
+| **Dropout** | 0.3 (%30) | Regülarizasyon tekniği (Ezberlemeyi önler). |
+| **Output Layer** | 7 Neurons | `Softmax` aktivasyon fonksiyonu ile sınıflara ait olasılık dağılımı üretir. |
+
+* * * * *
+
+🔬 Deneysel Kurulum
+-------------------
+
+Modelin eğitimi Google Colab ortamında, GPU hızlandırma (NVIDIA Tesla T4) kullanılarak gerçekleştirilmiştir.
+
+**Hiperparametreler (Hyperparameters):**
+
+-   **Optimizer:** Adam (Adaptive Moment Estimation) - `learning_rate=0.001`
+
+-   **Loss Function:** Categorical Crossentropy (Çok sınıflı sınıflandırma için)
+
+-   **Batch Size:** 32
+
+-   **Epochs:** 60 (Early Stopping mekanizması ile izlenmiştir)
+
+-   **Train/Test Split:** %80 Eğitim, %20 Test
+
+* * * * *
+
+📊 Performans Analizi ve Sonuçlar
+---------------------------------
+
+Geliştirilen DeepTone modeli, temel (baseline) model olarak seçilen **Random Forest** ile kıyaslanmıştır.
+
+### Karşılaştırmalı Sonuç Tablosu
+
+| **Algoritma** | **Mimari Türü** | **Doğruluk (Accuracy)** | **Kayıp (Loss)** |
+| --- | --- | --- | --- |
+| Random Forest | Ensemble Learning | %98.93 | - |
+| **DeepTone (Proposed)** | **Deep Learning (CNN)** | **%99.82** 🏆 | **0.0062** |
+
+### Analiz ve Yorumlar
+
+1.  **Doğruluk:** CNN modelinin %99.82'lik başarısı, ses özniteliklerinin hiyerarşik yapısını öğrenmede derin ağların üstünlüğünü kanıtlamıştır.
+
+2.  **Genelleştirme:** Eğitim (%99.20) ve Test (%99.82) başarılarının birbirine yakın olması, modelde **Overfitting (Aşırı Öğrenme)** probleminin başarıyla engellendiğini gösterir.
+
+3.  **Hata Analizi:** Karmaşıklık matrisine (Confusion Matrix) göre, modelin en çok zorlandığı iki sınıfın *Sadness* ve *Neutral* olduğu, bunun sebebinin ise iki duygunun da düşük enerji ve benzer frekans aralığına sahip olması olduğu değerlendirilmiştir.
+
+*(Şekil 1: Test verisi üzerindeki Karmaşıklık Matrisi)*
+
+*(Şekil 2: Eğitim süreci boyunca Accuracy ve Loss değişimi)*
+
+* * * * *
+
+💻 Kurulum ve Kullanım
+----------------------
+
+Proje, modüler dosya yapısına sahiptir.
+
+### Dosya Yapısı
+
+-   `model.py`: Model mimarisini tanımlayan sınıf yapısı.
+
+-   `train.py`: Veri işleme pipeline'ı ve eğitim döngüsü.
+
+-   `serve.py`: Gradio tabanlı demo arayüzü.
+
+### Çalıştırma Adımları
+
+**1\. Bağımlılıkları Yükleyin:**
+
+Bash
+
+```
+pip install -r requirements.txt
+
+```
+
+**2\. Eğitimi Başlatın:**
+
+Bash
+
+```
+python train.py
+
+```
+
+*Bu işlem sonucunda en iyi model ağırlıkları `duygu_modeli.h5` olarak kaydedilir.*
+
+**3\. Arayüzü Başlatın:**
+
+Bash
+
+```
+python serve.py
+
+```
+
+* * * * *
+
+🔮 Gelecek Çalışmalar
+---------------------
+
+Bu proje kapsamında elde edilen başarıyı daha ileri taşımak için şu adımlar planlanmaktadır:
+
+-   **Veri Çoğaltma (Data Augmentation):** Sese gürültü ekleme, hız değiştirme (Time-stretching) gibi yöntemlerle modelin gürültülü ortamlardaki dayanıklılığının artırılması.
+
+-   **LSTM Entegrasyonu:** CNN katmanlarının çıkışına LSTM (Long Short-Term Memory) eklenerek, sesin uzun vadeli zamansal bağımlılıklarının (temporal dependencies) modellenmesi.
+
+-   **Gerçek Zamanlı Akış:** Sisteme WebSocket entegrasyonu yapılarak canlı telefon görüşmelerinde anlık analiz yeteneği kazandırılması.
 
 * * * * *
 
@@ -102,4 +208,4 @@ Burak Can ÖZTOLAN
 
 Bilgisayar Mühendisliği Bölümü
 
-Teslim Tarihi: 30 Aralık 2024
+Proje Teslim Tarihi: 30 Aralık 2024
