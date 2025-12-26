@@ -8,26 +8,16 @@
 📑 İçindekiler
 --------------
 
-1.  [Proje Özeti ve Literatür](https://www.google.com/search?q=%23-proje-%C3%B6zeti-ve-literat%C3%BCr)
-
-2.  [Veri Seti Özellikleri](https://www.google.com/search?q=%23-veri-seti-%C3%B6zellikleri)
-
-3.  [Metodoloji ve Teknik Mimari](https://www.google.com/search?q=%23-metodoloji-ve-teknik-mimari)
-
-    -   [Sinyal İşleme ve MFCC](https://www.google.com/search?q=%231-sinyal-i%C5%9Fleme-ve-mfcc-mel-frequency-cepstral-coefficients)
-
-    -   [Model Topolojisi (1D-CNN)](https://www.google.com/search?q=%232-model-topolojisi-1d-cnn)
-
-4.  [Deneysel Kurulum (Experimental Setup)](https://www.google.com/search?q=%23-deneysel-kurulum)
-
-5.  [Performans Analizi ve Sonuçlar](https://www.google.com/search?q=%23-performans-analizi-ve-sonu%C3%A7lar)
-
-6.  [Kurulum ve Kullanım](https://www.google.com/search?q=%23-kurulum-ve-kullan%C4%B1m)
-
-7.  [Gelecek Çalışmalar](https://www.google.com/search?q=%23-gelecek-%C3%A7al%C4%B1%C5%9Fmalar)
-
-8.  [Hazırlayan](https://www.google.com/search?q=%23-haz%C4%B1rlayan)
-
+1. [Proje Özeti ve Literatür](#proje-özeti-ve-literatür)
+2. [Veri Seti Özellikleri](#veri-seti-özellikleri)
+3. [Metodoloji ve Teknik Mimari](#metodoloji-ve-teknik-mimari)
+    * [Sinyal İşleme ve MFCC](#1-sinyal-işleme-ve-mfcc-mel-frequency-cepstral-coefficients)
+    * [Model Topolojisi (1D-CNN)](#2-model-topolojisi-1d-cnn)
+4. [Deneysel Kurulum](#deneysel-kurulum)
+5. [Performans Analizi ve Sonuçlar](#performans-analizi-ve-sonuçlar)
+6. [Kurulum ve Kullanım](#kurulum-ve-kullanım)
+7. [Gelecek Çalışmalar](#gelecek-çalışmalar)
+8. [Hazırlayan](#hazırlayan)
 * * * * *
 
 🎯 Proje Özeti ve Literatür
