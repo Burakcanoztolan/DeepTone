@@ -5,19 +5,18 @@
 
 * * * * *
 
-📑 İçindekiler
---------------
+## 📑 İçindekiler
 
-1. [Proje Özeti ve Literatür](#proje-özeti-ve-literatür)
-2. [Veri Seti Özellikleri](#veri-seti-özellikleri)
-3. [Metodoloji ve Teknik Mimari](#metodoloji-ve-teknik-mimari)
-    * [Sinyal İşleme ve MFCC](#1-sinyal-işleme-ve-mfcc-mel-frequency-cepstral-coefficients)
-    * [Model Topolojisi (1D-CNN)](#2-model-topolojisi-1d-cnn)
-4. [Deneysel Kurulum](#deneysel-kurulum)
-5. [Performans Analizi ve Sonuçlar](#performans-analizi-ve-sonuçlar)
-6. [Kurulum ve Kullanım](#kurulum-ve-kullanım)
-7. [Gelecek Çalışmalar](#gelecek-çalışmalar)
-8. [Hazırlayan](#hazırlayan)
+1. [🎯 Proje Özeti ve Literatür](#-proje-özeti-ve-literatür)
+2. [💾 Veri Seti Özellikleri](#-veri-seti-özellikleri)
+3. [🛠 Metodoloji ve Teknik Mimari](#-metodoloji-ve-teknik-mimari)
+    * [1. Sinyal İşleme ve MFCC](#1-sinyal-işleme-ve-mfcc-mel-frequency-cepstral-coefficients)
+    * [2. Model Topolojisi (1D-CNN)](#2-model-topolojisi-1d-cnn)
+4. [🔬 Deneysel Kurulum](#-deneysel-kurulum)
+5. [📊 Performans Analizi ve Sonuçlar](#-performans-analizi-ve-sonuçlar)
+6. [💻 Kurulum ve Kullanım](#-kurulum-ve-kullanım)
+7. [🔮 Gelecek Çalışmalar](#-gelecek-çalışmalar)
+8. [👤 Hazırlayan](#-hazırlayan)
 * * * * *
 
 🎯 Proje Özeti ve Literatür
